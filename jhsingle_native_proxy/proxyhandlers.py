@@ -742,7 +742,11 @@ class SuperviseAndProxyHandler(LocalProxyHandler):
                 try:
                     await proc.start()
 
+                    self.log.info('Started process {} on port {}'.format(self.name, self.port))
+
                     is_ready = await proc.ready()
+
+                    self.log.info('Process {} is ready: {}'.format(self.name, is_ready))
 
                     if not is_ready:
 
