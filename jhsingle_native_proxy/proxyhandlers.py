@@ -739,7 +739,10 @@ class SuperviseAndProxyHandler(LocalProxyHandler):
                                             stderr=subprocess.PIPE, stdout=subprocess.PIPE)
                 self.state['proc'] = proc
 
+                self.log.info('About to start process {} on port {}'.format(self.name, self.port))
+
                 try:
+                    self.log.info('Starting process {} on port {}'.format(self.name, self.port))
                     await proc.start()
 
                     self.log.info('Started process {} on port {}'.format(self.name, self.port))
