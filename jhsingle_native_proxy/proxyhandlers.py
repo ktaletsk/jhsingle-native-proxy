@@ -92,6 +92,7 @@ class ProxyHandler(HubOAuthenticated, WebSocketHandlerMixin):
         We proxy it to the backend.
         """
         self.log.debug('jupyter_server_proxy: on_ping: {}'.format(data))
+        print('jupyter_server_proxy: on_ping: {}'.format(data))
         self._record_activity()
         if hasattr(self, 'ws'):
             self.ws.protocol.write_ping(data)
@@ -101,6 +102,7 @@ class ProxyHandler(HubOAuthenticated, WebSocketHandlerMixin):
         Called when we receive a ping back.
         """
         self.log.debug('jupyter_server_proxy: on_pong: {}'.format(data))
+        print('jupyter_server_proxy: on_pong: {}'.format(data))
 
     def on_close(self):
         """
@@ -734,6 +736,7 @@ class SuperviseAndProxyHandler(LocalProxyHandler):
                 timeout = self.get_timeout()
 
                 self.log.info(cmd)
+                print(cmd)
 
                 proc = SupervisedProcess(self.name, *cmd, env=server_env, ready_func=self._http_ready_func, ready_timeout=timeout, log=self.log,
                                             stderr=subprocess.PIPE, stdout=subprocess.PIPE)
