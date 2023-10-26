@@ -186,6 +186,8 @@ def run(port, destport, ip, presentation_path, debug, logs, authtype, request_ti
 
     configure_http_client()
 
+    print('TEST!!!!!!!!!!!!!!!')
+
     app = make_app(destport, prefix, list(command), presentation_path, authtype, request_timeout, ready_check_path, 
         ready_timeout, repo, repobranch, repofolder, conda_env, debug, logs, forward_user_info, query_user_info, 
         progressive, websocket_max_message_size)
