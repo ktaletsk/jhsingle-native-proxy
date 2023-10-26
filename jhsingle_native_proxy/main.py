@@ -187,8 +187,8 @@ def run(port, destport, ip, presentation_path, debug, logs, authtype, request_ti
     configure_http_client()
 
     print('TEST Print!!!!!')
-    self.log.debug('TEST Debug Log!!!!!')
-    self.log.info('TEST Info Log!!!!!')
+    app_log.debug('TEST Debug Log!!!!!')
+    app_log.info('TEST Info Log!!!!!')
 
     app = make_app(destport, prefix, list(command), presentation_path, authtype, request_timeout, ready_check_path, 
         ready_timeout, repo, repobranch, repofolder, conda_env, debug, logs, forward_user_info, query_user_info, 
